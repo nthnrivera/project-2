@@ -1,0 +1,22 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "Group project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nthnrivera/project-2.git"
+  },
+  "keywords": [
+    "revature"
+  ],
+  "author": "Micahel-Nathan-Muhammed-Revee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nthnrivera/project-2/issues"
+  },
+  "homepage": "https://github.com/nthnrivera/project-2#readme"
+}
