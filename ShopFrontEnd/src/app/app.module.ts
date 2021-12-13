@@ -9,6 +9,8 @@ import { CartViewComponent } from './cart-view/cart-view.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductHomeComponent } from './product-home/product-home.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductViewComponent } from './product-view/product-view.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 const routes: Routes = [
   {
@@ -36,7 +38,9 @@ const routes: Routes = [
     CartViewComponent,
     NavbarComponent,
     ProductHomeComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductViewComponent,
+    LoginFormComponent
   
   ],
   imports: [
