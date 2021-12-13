@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'project2';
+  title = 'project-2';
+  isCartOpen: boolean = false
+
+  toggleCart(event: Event){
+    event.preventDefault();
+    this.isCartOpen = !this.isCartOpen
+  }
 }
