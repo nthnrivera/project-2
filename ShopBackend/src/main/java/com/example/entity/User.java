@@ -1,18 +1,20 @@
 package com.example.entity;
 
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
+@Table(name="users")
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="users")
 @Data
+@JacksonXmlRootElement
 public class User {
 
     @Id
@@ -22,9 +24,6 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-    private String balance;
+    private double balance;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name="user_roles", foreignKey = @ForeignKey(name="user_id"))
-    private List<String> authorities;
 }
