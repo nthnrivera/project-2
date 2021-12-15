@@ -1,43 +1,44 @@
 package com.example.web;
 
-import com.example.entity.Product;
+import com.example.entity.Shop;
 //import com.example.entity.Review;
-import com.example.repository.ProductRepository;
+import com.example.repository.ShopRepository;
 import io.javalin.http.Handler;
 import org.eclipse.jetty.http.HttpStatus;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ProductController {
 
-    public static ProductRepository productRepository;
+public class ShopController {
+
+    public static ShopRepository shopRepository;
 
     public static Handler getAll= ctx->{
-        List<Product> products=productRepository.findAll();
+        List<Shop> products=shopRepository.findAll();
         TimeUnit.SECONDS.sleep(1); // intentional delay for teaching purpose
         ctx.json(products);
     };
     public static Handler get= ctx->{
-        int productId=Integer.parseInt(ctx.pathParam("productId"));
-        Product product=productRepository.findById(productId);
-        ctx.json(product);
+        int shopId=Integer.parseInt(ctx.pathParam("shopId"));
+        Shop shop=shopRepository.findByShopId(shopId);
+        ctx.json(shop);
     };
     public static Handler create= ctx->{
-        Product product=ctx.bodyAsClass(Product.class);
-        productRepository.save(product);
+        Shop product=ctx.bodyAsClass(Shop.class);
+        shopRepository.save(product);
         ctx.status(HttpStatus.CREATED_201);
     };
     public static Handler update= ctx->{
-        Product product=ctx.bodyAsClass(Product.class);
-        int productId=Integer.parseInt(ctx.pathParam("productId"));
-        product.setId(productId);
-        productRepository.update(product);
+        Shop shop=ctx.bodyAsClass(Shop.class);
+        int shopId=Integer.parseInt(ctx.pathParam("shopId"));
+        shop.setId(shopId);
+        shopRepository.update(shop);
         ctx.status(HttpStatus.CREATED_201);
     };
     public static Handler delete= ctx->{
-        int productId=Integer.parseInt(ctx.pathParam("productId"));
-        productRepository.delete(productId);
+        int shopId=Integer.parseInt(ctx.pathParam("shopId"));
+        shopRepository.deleteId(shopId);
     };
    /* public static Handler getReviews= ctx->{
         int productId=Integer.parseInt(ctx.pathParam("productId"));

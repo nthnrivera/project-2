@@ -1,8 +1,8 @@
 package com.example;
 
-import com.example.repository.JpaProductRepository;
-import com.example.repository.ProductRepository;
-import com.example.web.ProductController;
+import com.example.repository.JpaShopRepository;
+import com.example.repository.ShopRepository;
+import com.example.web.ShopController;
 import io.javalin.Javalin;
 
 import javax.persistence.EntityManagerFactory;
@@ -12,8 +12,8 @@ public class ShopApiServerApplication {
 
     static {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("my-pu");
-        ProductRepository productRepository = new JpaProductRepository(entityManagerFactory);
-        ProductController.productRepository = productRepository;
+        ShopRepository productRepository = new JpaShopRepository(entityManagerFactory);
+        ShopController.shopRepository = productRepository;
     }
 
     public static void main(String[] args) {
@@ -31,11 +31,11 @@ public class ShopApiServerApplication {
         // http://localhost:4200/
 
         // Routes
-        app.get("/api/products", ProductController.getAll);
-        app.get("/api/products/{productId}", ProductController.get);
-        app.post("/api/products", ProductController.create);
-        app.put("/api/products/{productId}", ProductController.update);
-        app.delete("/api/products/{productId}", ProductController.delete);
+        app.get("/api/products", ShopController.getAll);
+        app.get("/api/products/{productId}", ShopController.get);
+        app.post("/api/products", ShopController.create);
+        app.put("/api/products/{productId}", ShopController.update);
+        app.delete("/api/products/{productId}", ShopController.delete);
         // app.get("/api/products/{productId}/reviews", ProductController.getReviews);
 
     }
