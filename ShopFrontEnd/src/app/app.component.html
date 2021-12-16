@@ -1,8 +1,6 @@
 <div class = "container">
-<app-navbar [title] = "title"><</app-navbar>
 
 <hr />
-<app-cart-badge></app-cart-badge>
 <hr />
 
 <ul class = "nav">
@@ -21,10 +19,23 @@
             Account
         </a>
     </li>
+    <li class = "nav-item">
+        <a routerLink = "/login" class = "nav-link" href>
+            login
+        </a>
+    </li>
+    <li class = "nav-item">
+        <a routerLink = "/register" class = "nav-link" href>
+            Register
+        </a>
+    </li>
+    <li class = "nav-item">
+        <a routerLink = "/logout" class = "nav-link" href>
+            Logout
+        </a>
+    </li>
 </ul>
 
 <hr />
-
-<router-outlet></router-outlet>
-
+<app-login-form></app-login-form>
 </div>
