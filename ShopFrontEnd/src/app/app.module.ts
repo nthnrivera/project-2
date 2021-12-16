@@ -4,48 +4,25 @@ import { HttpClientModule } from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { CartBadgeComponent } from './cart-badge/cart-badge.component';
-import { CartViewComponent } from './cart-view/cart-view.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ProductHomeComponent } from './product-home/product-home.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductViewComponent } from './product-view/product-view.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './registration-form/registration-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ProductHomeComponent,
-    resolve: {},
-    canActivate: [],
-    canActivateChild: [],
-    canDeactivate: []
-  },
-  {
-    path: 'products',
-    component: ProductListComponent
-  },
-  {
-    path: 'cart',
-    component: CartViewComponent
-  }
+ 
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartBadgeComponent,
-    CartViewComponent,
-    NavbarComponent,
-    ProductHomeComponent,
-    ProductListComponent,
-    ProductViewComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    RegisterFormComponent
   
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
