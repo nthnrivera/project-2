@@ -16,11 +16,11 @@ import { ProductViewComponent } from './product-view/product-view.component';
 
 const routes: Routes = [
  
-    { path: '', pathMatch: "full", redirectTo: 'product-home' },
-    { path: 'login-form', pathMatch: "full", redirectTo: 'login-form' },
-    { path: 'cart-view', pathMatch: "full", redirectTo: 'cart-view'},
-    { path: 'registration-form', pathMatch: "full", redirectTo: 'registration-form'},
-    { path: 'logout', pathMatch: "full", redirectTo: 'login-form'}
+    { path: '', pathMatch: "full", component: ProductHomeComponent },
+    { path: 'login-form', pathMatch: "full", component: LoginFormComponent },
+    { path: 'cart-view', pathMatch: "full", component: CartViewComponent},
+    { path: 'registration-form', pathMatch: "full", component: RegisterFormComponent},
+    { path: 'logout', pathMatch: "full", component: LoginFormComponent}
   
  
 ]
