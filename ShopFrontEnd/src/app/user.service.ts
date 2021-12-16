@@ -20,7 +20,7 @@ export class UserService {
   }
 
   doLogin(credentials: any) {
-    this.httpClient.post("http://localhost:8080/login", credentials)
+    this.httpClient.post("http://localhost:4200/login", credentials)
       .subscribe({
         next: (response: any) => {
           localStorage.setItem("token", response.jwt);

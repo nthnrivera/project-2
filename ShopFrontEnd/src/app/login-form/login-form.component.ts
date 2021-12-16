@@ -13,9 +13,9 @@ export class LoginFormComponent implements OnInit {
   message: string = "";
 
   loginForm: FormGroup = this.fb.group({
-    username: [''],
+    email: [''],
     password: ['']
-  })
+  });
 
   handleSubmit(event: Event){
     let credentials = this.loginForm.value;
@@ -29,10 +29,10 @@ export class LoginFormComponent implements OnInit {
       .subscribe({
         next: (e: any) => {
           if (e.action === "LOGIN_SUCCESS")
-            this.router.navigate(["/todo-list/all"])
+            this.router.navigate(["/product-list"])
           if (e.action === "LOGIN_FAILED") {
             console.log(e);
-            this.message = "Login failed"
+            this.message = "Username/Password Incorrect"
           }
         }
       })
