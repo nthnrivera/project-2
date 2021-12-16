@@ -1,7 +1,9 @@
 package com.example.web;
 
 import com.example.entity.Cart;
+import com.example.entity.CartItem;
 import com.example.entity.User;
+import com.example.repository.CartItemRepository;
 import com.example.repository.CartRepository;
 import com.example.repository.UserRepository;
 import com.example.service.CartService;
@@ -31,6 +33,9 @@ public class CartController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private CartItemRepository cartItemRepository;
+
     // GET : /api/todos/{cartId}
 
     @RequestMapping(
@@ -57,8 +62,8 @@ public class CartController {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String email = userDetails.getUsername();
-        User user = userRepository.findByEmail(email);
+        String username = userDetails.getUsername();
+        User user = userRepository.findByUsername(username);
         cart.setUser(user);
 
         if(user.getBalance() <= cart.getTotalAmount()){

@@ -1,13 +1,16 @@
 package com.example.web;
 
 import com.example.entity.Shop;
+import com.example.entity.User;
 import com.example.repository.ShopRepository;
 import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -23,24 +26,10 @@ public class ShopController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/api/shops/{shopId}",
-            produces = {"application/json"}
-    )
-    public ResponseEntity<?> get(@PathVariable(name = "shopId") int cartId) {
-        Optional<Shop> optionalShop = shopRepository.findById(cartId);
-        if (optionalShop.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-        return ResponseEntity.ok(optionalShop.get());
-
-    }
-
-    @RequestMapping(
-            method = RequestMethod.GET,
-            value = "/api/shops",
+            value = "/api/products",
             produces = {"application/json", "application/xml"}
     )
-    public Collection<Shop> getAll() {
+    public Collection<Shop> getAll(Principal principal) {
 
         Collection<Shop> shops = shopRepository.findAll();
         return shops;
@@ -48,8 +37,25 @@ public class ShopController {
 
 
     @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/api/products/{shopId}",
+            produces = {"application/json"}
+    )
+    public ResponseEntity<?> get(@PathVariable(name = "shopId") int shopId) {
+        Optional<Shop> optionalShop = shopRepository.findById(shopId);
+        if (optionalShop.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(optionalShop.get());
+
+    }
+
+
+
+
+    @RequestMapping(
             method = RequestMethod.POST,
-            value = "/api/shops",
+            value = "/api/products",
             consumes = {"application/json", "application/xml"}
     )
     public ResponseEntity<?> post(@RequestBody Shop shop) {
@@ -62,7 +68,7 @@ public class ShopController {
 
     @RequestMapping(
             method = RequestMethod.PUT,
-            value = "/api/shops/{shopId}"
+            value = "/api/products/{shopId}"
     )
     public ResponseEntity<?> put(
             @PathVariable(name = "shopId") int shopId,
@@ -76,7 +82,7 @@ public class ShopController {
 
     @RequestMapping(
             method = RequestMethod.DELETE,
-            value = "/api/shops/{shopId}"
+            value = "/api/products/{shopId}"
     )
     public ResponseEntity<?> delete(@PathVariable(name = "shopId") int shopId) {
         shopRepository.deleteById(shopId); // delete from shop where id=?

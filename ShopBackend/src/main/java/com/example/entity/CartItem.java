@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "cart_items")
@@ -15,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @JacksonXmlRootElement
-public class CartItems {
+public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
