@@ -1,41 +1,37 @@
 <div class = "container">
-
 <hr />
+<h1>Knick Knack Shop</h1>
 <hr />
 
 <ul class = "nav">
     <li class = "nav-item">
-        <a routerLink = "/" class = "nav-link" href>
+        <a class = "nav-link" routerLinkActive = "active" [routerLink] = "['/product-home']">
             Products
         </a>
     </li>
     <li class = "nav-item">
-        <a routerLink = "/cart" class = "nav-link" href>
+        <a class = "nav-link" routerLinkActive = "active" [routerLink] = "['/login-form']">
+            Login
+        </a>
+    </li>
+    <li class = "nav-item">
+        <a class = "nav-link" routerLinkActive = "active" [routerLink] = "['/registration-form']">
+            Register
+        </a>
+    </li>
+     <li class = "nav-item">
+        <a class = "nav-link" routerLinkActive = "active" [routerLink] = "['/cart-view']">
+            <app-cart-badge></app-cart-badge>
             Cart
         </a>
     </li>
     <li class = "nav-item">
-        <a routerLink = "/account" class = "nav-link" href>
-            Account
-        </a>
-    </li>
-    <li class = "nav-item">
-        <a routerLink = "/login" class = "nav-link" href>
-            login
-        </a>
-    </li>
-    <li class = "nav-item">
-        <a routerLink = "/register" class = "nav-link" href>
-            Register
-        </a>
-    </li>
-    <li class = "nav-item">
-        <a routerLink = "/logout" class = "nav-link" href>
+        <a class = "nav-link" routerLinkActive = "active" [routerLink] = "['/login-form']">
             Logout
         </a>
     </li>
 </ul>
 
 <hr />
-<app-login-form></app-login-form>
+<router-outlet></router-outlet>
 </div>
