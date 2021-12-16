@@ -62,7 +62,7 @@ public class CartController {
         cart.setUser(user);
 
         if(user.getBalance() <= cart.getTotalAmount()){
-            return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).build();
+//           json message
         }else
             paymentService.makePayment(user,cart);
 
