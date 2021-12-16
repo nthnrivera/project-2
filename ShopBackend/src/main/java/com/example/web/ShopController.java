@@ -54,6 +54,7 @@ public class ShopController {
     )
     public ResponseEntity<?> post(@RequestBody Shop shop) {
 
+
         shop = shopRepository.save(shop);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(shop);
