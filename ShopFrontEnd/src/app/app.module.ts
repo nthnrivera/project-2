@@ -16,7 +16,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
 
 const routes: Routes = [
  
-    { path: '', pathMatch: "full", component: ProductHomeComponent },
+    { path: 'product-home', pathMatch: "full", component: ProductListComponent },
     { path: 'login-form', pathMatch: "full", component: LoginFormComponent },
     { path: 'cart-view', pathMatch: "full", component: CartViewComponent},
     { path: 'registration-form', pathMatch: "full", component: RegisterFormComponent},

@@ -14,7 +14,6 @@ export class ProductHomeComponent implements OnInit{
 
   @Input("value") product: any;
 
-  reviews: Array<any> = []
 
   currentTab: number = 1;
 
