@@ -36,12 +36,12 @@ public class AuthController {
     public ResponseEntity<?> doLogin(@RequestBody AuthRequest authRequest){
         try {
             authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+                    new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
             );
         }catch (UsernameNotFoundException | BadCredentialsException e){
             throw new RuntimeException("incorrect username or password");
         }
-        UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
+        UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getEmail());
         String jwt=jwtUtils.generateToken(userDetails);
 
         AuthResponse authResponse = new AuthResponse(jwt);

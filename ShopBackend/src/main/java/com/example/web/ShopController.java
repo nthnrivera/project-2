@@ -30,7 +30,10 @@ public class ShopController {
             produces = {"application/json", "application/xml"}
     )
     public Collection<Shop> getAll(Principal principal) {
-
+//        UsernamePasswordAuthenticationToken authenticationToken=(UsernamePasswordAuthenticationToken)principal;
+//        String username=authenticationToken.getName();
+//
+//        User user = userRepository.findByUsername(username);
         Collection<Shop> shops = shopRepository.findAll();
         return shops;
     }
