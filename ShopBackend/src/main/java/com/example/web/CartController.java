@@ -1,12 +1,9 @@
 package com.example.web;
 
 import com.example.entity.Cart;
-import com.example.entity.CartItem;
 import com.example.entity.User;
-import com.example.repository.CartItemRepository;
 import com.example.repository.CartRepository;
 import com.example.repository.UserRepository;
-import com.example.service.CartService;
 import com.example.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,16 +22,11 @@ public class CartController {
     private CartRepository cartRepository;
 
     @Autowired
-    private CartService cartService;
-
-    @Autowired
     private PaymentService paymentService;
 
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private CartItemRepository cartItemRepository;
 
     // GET : /api/todos/{cartId}
 

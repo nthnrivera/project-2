@@ -75,15 +75,7 @@ public class CartItemController {
             consumes = {"application/json", "application/xml"}
     )
     public ResponseEntity<?> post(@RequestBody CartItem cartItem) {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-//        String username = userDetails.getUsername();
-//        User user = userRepository.findByUsername(username);
-//
-//
-//        Cart cart = new Cart();
-//        cart.setId(parseInt(user.getUsername()));
-//        cartItem.setCart();
+
 
         cartItem = cartItemRepository.save(cartItem);
 

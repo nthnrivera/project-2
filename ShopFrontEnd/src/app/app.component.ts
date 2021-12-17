@@ -14,3 +14,5 @@ export class AppComponent {
     this.isCartOpen = !this.isCartOpen
   }
 }
+
+

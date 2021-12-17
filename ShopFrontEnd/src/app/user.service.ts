@@ -20,7 +20,7 @@ export class UserService {
   }
 
   doLogin(credentials: any) {
-    this.httpClient.post("http://localhost:4200/login", credentials)
+    this.httpClient.post("http://localhost:8080/login", credentials)
       .subscribe({
         next: (response: any) => {
           localStorage.setItem("token", response.jwt);
@@ -43,7 +43,7 @@ export class UserService {
     formData.authorities = [
       'ROLE_USER'
     ]
-    this.httpClient.post("http://localhost:4200/api/users", formData)
+    this.httpClient.post("http://localhost:8080/api/users", formData)
       .subscribe({
         next: (response: any) => {
           this.userStream.next({

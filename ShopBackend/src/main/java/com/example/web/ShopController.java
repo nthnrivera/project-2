@@ -26,14 +26,11 @@ public class ShopController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/api/products",
+            value = "/api/product-home",
             produces = {"application/json", "application/xml"}
     )
     public Collection<Shop> getAll(Principal principal) {
-//        UsernamePasswordAuthenticationToken authenticationToken=(UsernamePasswordAuthenticationToken)principal;
-//        String username=authenticationToken.getName();
-//
-//        User user = userRepository.findByUsername(username);
+
         Collection<Shop> shops = shopRepository.findAll();
         return shops;
     }
@@ -41,7 +38,7 @@ public class ShopController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/api/products/{shopId}",
+            value = "/api/product-home/{shopId}",
             produces = {"application/json"}
     )
     public ResponseEntity<?> get(@PathVariable(name = "shopId") int shopId) {
@@ -58,7 +55,7 @@ public class ShopController {
 
     @RequestMapping(
             method = RequestMethod.POST,
-            value = "/api/products",
+            value = "/api/product-home",
             consumes = {"application/json", "application/xml"}
     )
     public ResponseEntity<?> post(@RequestBody Shop shop) {
@@ -71,7 +68,7 @@ public class ShopController {
 
     @RequestMapping(
             method = RequestMethod.PUT,
-            value = "/api/products/{shopId}"
+            value = "/api/product-home/{shopId}"
     )
     public ResponseEntity<?> put(
             @PathVariable(name = "shopId") int shopId,
@@ -85,7 +82,7 @@ public class ShopController {
 
     @RequestMapping(
             method = RequestMethod.DELETE,
-            value = "/api/products/{shopId}"
+            value = "/api/product-home/{shopId}"
     )
     public ResponseEntity<?> delete(@PathVariable(name = "shopId") int shopId) {
         shopRepository.deleteById(shopId); // delete from shop where id=?
